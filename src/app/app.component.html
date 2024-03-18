@@ -1,0 +1,53 @@
+<div class="container">
+    <form (ngSubmit)="addUser()" #personForm="ngForm">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Podaj imie:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Podaj nazwisko:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Podaj swój nick w grze:</label>
+            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="selectId" class="form-label">Do jakiej gry dodać?</label>
+            <select class="form-control" aria-label=".form-select-lg example" id="group" name="group" [(ngModel)]="groups">
+          <option *ngFor="let line of lines">{{line}}</option>
+        </select>
+        </div>
+        <input type="submit" class="btn btn-primary mb-3" value="Dodaj">
+    </form>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col" *ngFor="let game of games; index as i;">
+                <h4>{{game.gameName}}</h4>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <td>L.p</td>
+                            <td>Imię</td>
+                            <td>Nazwisko</td>
+                            <td>Nick</td>
+                            <td> </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let player of game.players">
+                            <td>{{player.id}}</td>
+                            <td>{{player.firstName}}</td>
+                            <td>{{player.lastName}}</td>
+                            <td>{{player.username}}</td>
+                            <td>
+                                <button (click)="removePerson(player.id, games[i].gameName)" class="btn mb-3 btn-dark">Usuń</button>
+                                <button (click)="editPerson(player.id, games[i].gameName)" class="btn mb-3 btn-dark">Edytuj</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
