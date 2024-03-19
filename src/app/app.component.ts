@@ -51,6 +51,7 @@ export class AppComponent {
       });
     }
 
+    alert("Dodano gracza do " + this.groups)
     this.firstName = '';
     this.lastName = '';
     this.username = '';
