@@ -7,6 +7,7 @@ Wygląd strony:
 
 
 
+Komunikat o dodaniu gracza o tabeli:
 ![image](https://github.com/Kalemak2/Forms-mastes/assets/152185330/c8823e84-314b-4ee7-b0d3-7d639e2a6fb0)
 
 
